@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_personals', function (Blueprint $table) {
+        Schema::create('personals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->enum('gender',['man','other']);

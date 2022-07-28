@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('question_answers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('quetion_id');
+            $table->foreignId('question_id');
             $table->text('content');
             // $table->???('sort');
             // o co kaman?
