@@ -14,11 +14,15 @@ class OpinionFormingUsersController extends Controller
      */
     public function index()
     {
-        $opinionFormingUsers = User::with([
+        $opinionFormingUsers = User::whereHas(
+            'personals', function($query) {
+                $query->where('filled_surveys_count','>',0);
+            })
+            ->with([
             'personals' => function($query) {
                 $query->orderBy('filled_surveys_count');
-            }])->where('filled_surveys_count','>',0)
-            ->get();
+            }])
+                ->get();
         return view(
             'OpinionFormingUsers.index',
             ['opinionFormingUsers'=>$opinionFormingUsers]);

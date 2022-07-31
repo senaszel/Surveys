@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OpinionFormingUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,7 @@ Route::get('/create-survey', function () {
 Route::get('/dashboard', function () {
     return view('dashboard', ['page' => 'dashboard']);
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/opiniotworczy-uzytkownicy',[OpinionFormingUsersController::class,'index'])->name('opiniotworczy-uzytkownicy');
 
 require __DIR__ . '/auth.php';
