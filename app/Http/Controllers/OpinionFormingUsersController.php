@@ -22,7 +22,12 @@ class OpinionFormingUsersController extends Controller
             'personals' => function($query) {
                 $query->orderBy('filled_surveys_count');
             }])
-                ->get();
+                ->limit(100)
+                ->get()
+                ->sortByDesc(function($query){
+                    return $query->personals->filled_surveys_count;
+                })
+                ->all();
         return view(
             'OpinionFormingUsers.index',
             ['opinionFormingUsers'=>$opinionFormingUsers]);
