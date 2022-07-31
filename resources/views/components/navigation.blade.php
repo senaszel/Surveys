@@ -15,6 +15,7 @@
 
                 @auth
                 <a href="{{ url('/') }}" class="hover:text-red-700 text-xl whitespace-nowrap transition-colors {{ (request()->is('')) ? 'active:text-yellow-500' : '' }}">Homepage</a>
+                <a href="{{ url('/opiniotworczy-uzytkownicy') }}" class="hover:text-red-700 text-xl whitespace-nowrap transition-colors {{ (request()->is('')) ? 'active:text-yellow-500' : '' }}">Opiniotwórczy uzytkownicy</a>
                 <a href="{{ url('/dashboard') }}" class="hover:text-red-700 text-xl whitespace-nowrap transition-colors {{ (request()->is('dashboard')) ? 'active:text-yellow-500' : '' }}">Dashboard</a>
                 <a href="{{ url('/create-survey') }}" class="hover:text-red-700 text-xl whitespace-nowrap transition-colors {{ (request()->is('create')) ? 'active:text-yellow-500' : '' }}">Utwórz ankiete</a>
                 @else
