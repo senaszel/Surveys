@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OpinionFormingUsersController;
+use App\Http\Controllers\SurveysController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/opiniotworczy-uzytkownicy',[OpinionFormingUsersController::class,'index'])->name('opiniotworczy-uzytkownicy');
+
+Route::controller(SurveysController::class)->prefix('surveys')->name('surveys.')->group( function () {
+    Route::get('/index','index')->name('index');
+    Route::get('/ostatnio-dodane-index','ostatnio_dodane_index')->name('ostatnio-dodane-index');
+    Route::get('/najpopularniejsze-index','najpopularniejsze_index')->name('najpopularniejsze-index');
+});
 
 require __DIR__ . '/auth.php';
