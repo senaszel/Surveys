@@ -6,7 +6,7 @@
         <div class="flex items-center justify-between">
             <!--Logo-->
             <a href="{{ url('/') }}">
-                <img src="{{asset('storage/image/survey.png')}}" width="64" alt="Surveys">
+                <img src="{{asset('storage/image/survey.png')}}" onmouseover="src='{{ asset('storage/image/survey-hover.png') }}'" onmouseout="src='{{ asset('storage/image/survey.png') }}'" width="64" alt="Surveys">
             </a>
             <!--Menu items-->
             <!--For medium devices set display-none-->
