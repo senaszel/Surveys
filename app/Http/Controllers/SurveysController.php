@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Enums\QuestionTypesEnum;
 use Illuminate\Http\Request;
 
 class SurveysController extends Controller
@@ -44,7 +45,28 @@ class SurveysController extends Controller
      */
     public function create()
     {
-        //
+        $SurveysController = $this;
+        $test = 'test ok';
+        return view('surveys.create',compact('SurveysController','test'));
+    }
+
+    public static function renderComponent(QuestionTypesEnum $questionTypesEnum = QuestionTypesEnum::ABCD) {
+        $ret = '';
+        switch ($questionTypesEnum) {
+            case QuestionTypesEnum::OPEN :
+                $ret = 'components.questionTypes.Open';
+                break;
+            case QuestionTypesEnum::TRUE_OR_FALSE :
+                $ret = 'components.questionTypes.TrueOrFalse';
+                break;
+            case QuestionTypesEnum::ABCD :
+                $ret = 'components.questionTypes.ABCD';
+                break;
+            default :
+                $ret = 'components.questionTypes.ABCD';
+                break;
+        }
+        return view($ret)->render();
     }
 
     /**
@@ -55,7 +77,8 @@ class SurveysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // temporary used as view
+        return view('surveys.store');
     }
 
     /**

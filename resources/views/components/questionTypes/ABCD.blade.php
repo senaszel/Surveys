@@ -1,5 +1,4 @@
-<h1>afsd</h1>
-{{-- <div class="flex flex-col flex-1 items-stretch w-full">
+<div class="flex flex-col flex-1 items-stretch w-full">
     <div class="flex flex-row flex-1 items-stretch w-full">
         <label class="self-center w-[23%] mr-[2%] font-bold text-center" for="pytanieABCD">Wpisz Nazwę ankiety</label>
         <input class="w-[75%]" type="text" name="pytanieABCD" id="pytanieABCD" placeholder="wpisz treść pytania">
@@ -20,4 +19,4 @@
         <label class="self-center w-[23%] mr-[2%] font-bold text-center" for="odpowiedzD">Wpisz Nazwę ankiety</label>
         <input class="w-[75%]" type="text" name="pytanieABCD" id="odpowiedzD" placeholder="wpisz treść mozliwej odpowiedzi D">
     </div>
-</div> --}}
+</div>

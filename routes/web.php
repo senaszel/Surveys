@@ -19,10 +19,6 @@ Route::get('/', function () {
     return view('welcome', ['page' => 'home']);
 });
 
-Route::get('/create-survey', function () {
-    return view('surveys.create-survey', ['page' => 'create']);
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard', ['page' => 'dashboard']);
 })->middleware(['auth'])->name('dashboard');
@@ -33,6 +29,8 @@ Route::controller(SurveysController::class)->prefix('surveys')->name('surveys.')
     Route::get('/index','index')->name('index');
     Route::get('/ostatnio-dodane-index','ostatnio_dodane_index')->name('ostatnio-dodane-index');
     Route::get('/najpopularniejsze-index','najpopularniejsze_index')->name('najpopularniejsze-index');
+    Route::get('/create','create')->name('create');
+    Route::POST('/store','store')->name('store');
 });
 
 require __DIR__ . '/auth.php';

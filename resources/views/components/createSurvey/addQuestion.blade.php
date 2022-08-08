@@ -23,7 +23,7 @@
         </div>
     </dialog>
 
-    <div class="flex flex-row flex-1 w-full mx-auto">
+    <div class="flex flex-row flex-1 w-full mx-auto p-8 shadow-lg rounded-xl bg-brightRedSupLight" id="btnAddQuestion">
         <button
             class="flex-1 px-4 py-4 text-xl text-white rounded bg-brightRedLight hover:bg-white hover:text-brightRedLight hover:text-2xl outline-none hover:outline hover:outline-brightRedLight hover:outline-4"
             type="button" id="open-button">
@@ -51,7 +51,7 @@
         BtnAddABCDTypeOfQuestion.addEventListener('click', () => {
             const beforeBtnAddQuestion = document.querySelector('#btnAddQuestion');
             beforeBtnAddQuestion.prepend(
-                'abcd pyt'
+                {!! $SurveysController::renderComponent() !!}
             );
             modal.close();
         });
