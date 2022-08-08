@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/create-survey', function () {
-    return view('create-survey', ['page' => 'create']);
+    return view('surveys.create-survey', ['page' => 'create']);
 });
 
 Route::get('/dashboard', function () {
