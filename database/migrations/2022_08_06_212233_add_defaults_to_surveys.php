@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('personals', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->enum('gender',['man','other']);
-            $table->integer('age');
-            $table->integer('created_surveys_count');
-            $table->integer('filled_surveys_count');
-            $table->timestamps();
+        Schema::table('surveys', function (Blueprint $table) {
+            $table->boolean('is_approved')->default(false)->change();
+            $table->boolean('is_published')->default(false)->change();
         });
     }
 
@@ -31,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personals');
+        Schema::table('surveys', function (Blueprint $table) {
+            $table->dropColumn('is_approved');
+            $table->dropColumn('is_published');
+        });
     }
 };
