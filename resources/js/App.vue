@@ -1,9 +1,12 @@
 <template>
-  <h1 class="text-center p-8">jestem komponentem vue!</h1>
+  <createSurvey></createSurvey>
 </template>
 
 <script>
+import createSurvey from './components/createSurvey/create-survey.vue';
 export default {
-
+  components: {
+    createSurvey,
+  }
 }
 </script>
