@@ -30,7 +30,7 @@
       ">
             <ul class="">
                 <li class="py-8" v-for="el in list" :key="el.id">
-                    <elementOfTheList @deleteElement="deleteElement" :id="el.id" :type="el.type"></elementOfTheList>
+                    <questionForSurvey @deleteElement="deleteElement" :id="el.id" :type="el.type"></questionForSurvey>
                 </li>
             </ul>
         </div>
@@ -48,17 +48,16 @@
 <script>
 import addQuestionBtn from "./add-question-btn.vue";
 import saveSurveyBtn from "./save-survey-btn.vue";
-import elementOfTheList from "./element-of-the-list.vue";
-// import uniqueId from "lodash.uniqueid";
-import {uniqueId} from 'lodash';
+import questionForSurvey from "./question-for-survey.vue";
+import { uniqueId } from 'lodash';
 
 
 export default {
-        components: {
-            addQuestionBtn,
-            saveSurveyBtn,
-            elementOfTheList,
-        },
+    components: {
+        addQuestionBtn,
+        saveSurveyBtn,
+        questionForSurvey,
+    },
 
     methods: {
         deleteElement(id_arg) {
