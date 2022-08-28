@@ -1,6 +1,9 @@
 <x-layout>
     <h1 class="text-5xl text-center font-bold mt-16">Kreator ankiet</h1>
     <div class="w-full max-w-lg mx-auto mt-8">
+
+        <div id="app"></div>
+
         <form id="add-question" class="shadow-lg rounded-xl bg-brightRedSupLight p-8">
             <div class="flex flex-col space-y-4 w-1/2 mx-auto justify-center mb-8 mt-8">
                 <button class="bg-brightRedLight hover:bg-brightRed text-white py-4 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
