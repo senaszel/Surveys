@@ -12,8 +12,8 @@
         <button @click="$emit('deleteElement', id)"
             class="p-2 text-xl font-bold text-red-50 hover:text-red-500 place-self-end flex-grow-0">delete</button>
         <div class="flex flex-row flex-1 items-stretch w-full p-4">
-            <label class="w-[18%] mr-[2%] font-bold" for="pytanieOtwarte">Wpisz treść pytania</label>
-            <input class="w-[80%] h-[125%]" type="text" name="pytanieOtwarte" id="pytanieOtwarte"
+            <label class="w-[18%] mr-[2%] font-bold" :for="questionOpen">Wpisz treść pytania</label>
+            <input class="w-[80%] h-[125%]" type="text" :name="questionOpen"
                 placeholder="   wpisz treść pytania otwartego" />
         </div>
     </div>
@@ -21,6 +21,11 @@
   
   <script>
 export default {
+    data() {
+        return {
+            questionOpen: 'questions['+this.id+'][open][question][name]',
+        };
+    },
     props: {
         id: { required: true, type: String },
         type: { required: true, type: String },

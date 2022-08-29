@@ -22,7 +22,7 @@
         outline-none
         hover:font-bold hover:outline hover:outline-red-50 hover:outline-4
       "
-      type="button"
+      type="submit"
       id="open-button"
       @click="saveSurvey"
     >
