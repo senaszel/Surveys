@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-row flex-1">
-    <div class="absolute right-[80%]">
+    <div v-show="index !== 0 || index !== listLength-1" class="absolute right-[80%]">
       <div class="flex flex-col flex-1 w-full mx-auto p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black space-y-28">
-        <button @click.prevent="" class="justify-self-start bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full">przesuń w górę</button>
-        <button @click.prevent="" class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full">przesuń w dół</button>
+        <button v-show="index !== 0" @click.prevent="$emit('moveUp',index)" class="justify-self-start bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full">przesuń w górę</button>
+        <button v-show="index !== listLength-1" @click.prevent="$emit('moveDown',index)" class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full">przesuń w dół</button>
       </div>
     </div>
 
@@ -56,6 +56,8 @@ export default {
   props: {
     id: { required: true, type: String },
     type: { required: true, type: String },
+    index: { required: true, type: Number },
+    listLength: { required: true, type: Number },
   },
 
   data() {

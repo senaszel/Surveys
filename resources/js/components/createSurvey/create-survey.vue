@@ -32,8 +32,12 @@
         ">
             
                 <ul class="">
-                    <li class="py-8" v-for="el in list" :key="el.id">
-                        <questionForSurvey @deleteElement="deleteElement" :id="el.id" :type="el.type"></questionForSurvey>
+                    <li class="py-8" v-for="(el,index) in list" :key="el.id">
+                        <questionForSurvey :id="el.id" :type="el.type" :index="index" :listLength="list.length"
+                        @deleteElement="deleteElement"
+                        @moveUp="moveUp"
+                        @moveDown="moveDown"
+                        ></questionForSurvey>
                     </li>
                 </ul>
 
@@ -66,12 +70,31 @@ export default {
     },
 
     methods: {
+
+        moveUp(index) {
+            if (index != 0) {
+                const temp = this.list[index-1];
+                this.list[index-1] = this.list[index];
+                this.list[index] = temp;
+            }
+        },
+
+        moveDown(index) {
+            if (index != this.list.length-1) {
+                const temp = this.list[index+1];
+                this.list[index+1] = this.list[index];
+                this.list[index] = temp;
+            }
+        },
+
         deleteElement(id_arg) {
             this.list = this.list.filter((elementOfTheList) => elementOfTheList.id !== id_arg);
         },
+
         AddCertainTypeOfQuestion(passedType) {
             this.list.push({ id: uniqueId(), type: passedType });
-        }
+        },
+
     },
 
     props: {

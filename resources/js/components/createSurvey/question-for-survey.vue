@@ -1,12 +1,16 @@
 <template>
   <div v-if="type === 'abcd'">
-    <abcdQuestionType @deleteElement="$emit('deleteElement', id)" :type="type" :id="id"></abcdQuestionType>
+    <abcdQuestionType :type="type" :id="id" :index="index" :listLength="listLength"
+      @deleteElement="$emit('deleteElement', id)" 
+      @moveUp="$emit('moveUp', index)"
+      @moveDown="$emit('moveDown', index)">
+    </abcdQuestionType>
   </div>
   <div v-if="type === 'trueOrFalse'">
-    <trueOrFalseQuestionType @deleteElement="$emit('deleteElement', id)" :type="type" :id="id"></trueOrFalseQuestionType>
+    <trueOrFalseQuestionType @deleteElement="$emit('deleteElement', id)" :type="type" :id="id" :index="index"></trueOrFalseQuestionType>
   </div>
   <div v-if="type === 'open'">
-    <openQuestionType @deleteElement="$emit('deleteElement', id)" :type="type" :id="id"></openQuestionType>
+    <openQuestionType @deleteElement="$emit('deleteElement', id)" :type="type" :index="index" :id="id"></openQuestionType>
   </div>
 </template>
 
@@ -21,9 +25,15 @@ export default {
   props: {
     id: { required: true, type: String },
     type: { required: true, type: String },
+    index: { required: true, type: Number },
+    listLength: { required: true, type: Number },
   },
 
-  emits: ["deleteElement"],
+  emits: [
+      'deleteElement',
+      'moveUp',
+      'moveDown',
+    ],
 
   methods: {
     //methods
