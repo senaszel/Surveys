@@ -62,16 +62,16 @@ export default {
 
   data() {
     return {
-      questionABCD: 'questions[' + this.id + '][abcd][question][name]',
-      questionABCDId: 'questions-' + this.id + '-question-abcd',
-      questionABCD_answerA: 'questions[' + this.id + '][abcd][answers][a]',
-      answerA: 'questions-' + this.id + '-answer-a',
-      questionABCD_answerB: 'questions[' + this.id + '][abcd][answers][b]',
-      answerB: 'questions-' + this.id + '-answer-b',
-      questionABCD_answerC: 'questions[' + this.id + '][abcd][answers][c]',
-      answerC: 'questions-' + this.id + '-answer-c',
-      questionABCD_answerD: 'questions[' + this.id + '][abcd][answers][d]',
-      answerD: 'questions-' + this.id + '-answer-d',
+      questionABCD: 'questions[' + this.index + '][abcd][question][name]',
+      questionABCDId: 'questions-' + this.index + '-question-abcd',
+      questionABCD_answerA: 'questions[' + this.index + '][abcd][answers][a]',
+      answerA: 'questions-' + this.index + '-answer-a',
+      questionABCD_answerB: 'questions[' + this.index + '][abcd][answers][b]',
+      answerB: 'questions-' + this.index + '-answer-b',
+      questionABCD_answerC: 'questions[' + this.index + '][abcd][answers][c]',
+      answerC: 'questions-' + this.index + '-answer-c',
+      questionABCD_answerD: 'questions[' + this.index + '][abcd][answers][d]',
+      answerD: 'questions-' + this.index + '-answer-d',
     };
   },
 
