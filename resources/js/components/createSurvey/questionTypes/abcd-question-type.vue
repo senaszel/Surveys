@@ -1,13 +1,12 @@
 <template>
   <div class="flex flex-row flex-1">
-    <div v-show="index !== 0 || index !== listLength-1" class="absolute right-[80%]">
-      <div class="flex flex-col flex-1 w-full mx-auto p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black space-y-28">
-        <button v-show="index !== 0" @click.prevent="$emit('moveUp',index)" class="justify-self-start bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full">przesuń w górę</button>
-        <button v-show="index !== listLength-1" @click.prevent="$emit('moveDown',index)" class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full">przesuń w dół</button>
-      </div>
-    </div>
+    <movingOnTheListBtns :index="index" :listLength="listLength"
+      @moveUp="$emit('moveUp',index)" 
+      @moveDown="$emit('moveDown',index)">
+    </movingOnTheListBtns>
 
-    <div class="flex flex-col flex-1 items-stretch w-full mx-auto p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black">
+    <div
+      class="flex flex-col flex-1 items-stretch w-full mx-auto p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black">
       <div class="flex flex-row flex-1 items-stretch w-full p-4">
         <label class="w-[23%] mr-[2%] font-bold" :for="questionABCD">Wpisz treść pytania</label>
         <input class="w-[75%]" type="text" :name="questionABCD" :id="questionABCDId"
@@ -38,20 +37,23 @@
           placeholder="   wpisz treść mozliwej odpowiedzi D" />
       </div>
     </div>
-   
-    <div class="absolute left-[80%]">
-      <div class="flex flex-col flex-1 items-stretch w-full mx-auto p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black space-y-8">
-        <button @click.prevent="$emit('deleteElement', id)"
-        class="p-4 rounded-full bg-blue-400 text-xl font-bold hover:bg-red-500">delete</button>
-        <button @click.prevent="" class="bg-blue-400 p-4 rounded-full">dłuszy tekst w buttonie</button>
-        <button @click.prevent="" class="bg-blue-400 p-4 rounded-full">raz</button>
-    </div>
-  </div>
+
+    <otherFunctionalBtns :id="id" :index="index"
+      @deleteElement="$emit('deleteElement', id)"
+      @swapElements="$emit('swapElements', index)" >
+    </otherFunctionalBtns>
+
   </div>
 </template>
-  
-  <script>
+
+<script>
+import movingOnTheListBtns from "../moving-on-the-list-btns.vue";
+import otherFunctionalBtns from "../other-functional-btns.vue";
 export default {
+  components: {
+    movingOnTheListBtns,
+    otherFunctionalBtns,
+  },
 
   props: {
     id: { required: true, type: String },
