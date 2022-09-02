@@ -16,7 +16,7 @@
     </trueOrFalseQuestionType>
   </div>
   <div v-if="type === 'open'">
-    <openQuestionType :type="type" :index="index" :id="id" :listLength="listLength"
+    <openQuestionType :type="type" :id="id" :index="index" :listLength="listLength"
       @deleteElement="$emit('deleteElement', id)" 
       @moveUp="$emit('moveUp', index)"
       @moveDown="$emit('moveDown', index)"

@@ -30,7 +30,7 @@
 
     <otherFunctionalBtns :id="id" :index="index"
       @deleteElement="$emit('deleteElement', id)"
-      @swapElements="$emit('swapElements', id)">
+      @swapElements="$emit('swapElements', index)">
     </otherFunctionalBtns>
 
   </div>

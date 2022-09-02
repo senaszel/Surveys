@@ -38,75 +38,54 @@
     </form>
 </template>
 
-<script>
+<script setup>
 import addQuestionBtn from "./add-question-btn.vue";
 import saveSurveyBtn from "./save-survey-btn.vue";
 import questionForSurvey from "./question-for-survey.vue";
 import { uniqueId } from 'lodash';
-import { reactive } from 'vue';
+import { ref } from 'vue';
 
-export default {
-    components: {
-        addQuestionBtn,
-        saveSurveyBtn,
-        questionForSurvey,
-    },
+const list = ref([]);
+const swapElementFirst = ref({ nb: null });
+const swapElementSecond = ref({ nb: null });
 
-    methods: {
+function swapElements(index) {
+    if (swapElementFirst.value.nb === null) {
+        swapElementFirst.value.nb = index;
+        return;
+    }
+    if (swapElementFirst.value.nb === index) {
+        return;
+    }
+    swapElementSecond.value.nb = index;
+    const temp = list.value[swapElementFirst.value.nb];
+    list.value[swapElementFirst.value.nb] = list.value[swapElementSecond.value.nb];
+    list.value[swapElementSecond.value.nb] = temp;
+    swapElementFirst.value.nb = null;
+    swapElementSecond.value.nb = null;
+};
 
-        async swapElements(index) {
-            if (this.swapElementFirst.nb === null) {
-                this.swapElementFirst.nb = index;
-            } else {
-                this.swapElementSecond.nb = index;
-                const temp = await this.list[this.swapElementFirst.nb];
-                this.list[this.swapElementFirst.nb] = await this.list[this.swapElementSecond.nb];
-                this.list[this.swapElementSecond.nb] = await temp;
-                this.swapElementFirst.nb = null;
-                this.swapElementSecond.nb = null;
-            }
-        },
+function moveUp(index) {
+    if (index != 0) {
+        const temp = list.value[index - 1];
+        list.value[index - 1] = list.value[index];
+        list.value[index] = temp;
+    }
+};
 
-        moveUp(index) {
-            if (index != 0) {
-                const temp = this.list[index - 1];
-                this.list[index - 1] = this.list[index];
-                this.list[index] = temp;
-            }
-        },
+function moveDown(index) {
+    if (index != list.length - 1) {
+        const temp = list.value[index + 1];
+        list.value[index + 1] = list.value[index];
+        list.value[index] = temp;
+    }
+};
 
-        moveDown(index) {
-            if (index != this.list.length - 1) {
-                const temp = this.list[index + 1];
-                this.list[index + 1] = this.list[index];
-                this.list[index] = temp;
-            }
-        },
+function deleteElement(id_arg) {
+    list.value = list.value.filter((elementOfTheList) => elementOfTheList.id !== id_arg);
+};
 
-        deleteElement(id_arg) {
-            this.list = this.list.filter((elementOfTheList) => elementOfTheList.id !== id_arg);
-        },
-
-        AddCertainTypeOfQuestion(passedType) {
-            this.list.push({ id: uniqueId(), type: passedType });
-        },
-
-    },
-
-    props: {
-        //props
-    },
-
-    data() {
-        return {
-            list: [],
-            nazwa_ankiety: "",
-            swapElementFirst: reactive({nb:null}),
-            swapElementSecond: reactive({nb:null}),
-        };
-    },
+function AddCertainTypeOfQuestion(passedType) {
+    list.value.push({ id: uniqueId(), type: passedType });
 };
 </script>
-
-<style>
-</style>
