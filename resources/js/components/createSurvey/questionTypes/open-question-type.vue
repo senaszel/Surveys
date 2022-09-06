@@ -1,7 +1,8 @@
     <template>
     <div class="flex flex-row flex-1 h-full">
 
-        <movingOnTheListBtns :index="index" :listLength="listLength" @moveUp="$emit('moveUp', index)"
+        <movingOnTheListBtns :index="index" :listLength="listLength"
+            @moveUp="$emit('moveUp', index)"
             @moveDown="$emit('moveDown', index)">
         </movingOnTheListBtns>
 

@@ -13,16 +13,17 @@
           placeholder="   wpisz treść pytania" />
       </div>
       <div class="flex flex-row flex-1 items-stretch w-full p-4">
-        <div class="flex flex-row flex-1 items-stretch w-full">
-          <label class="self-center w-[23%] mr-[2%] font-bold" :for="answerTrue">Wpisz treść mozliwej
+        <div class="flex flex-col flex-1 items-stretch w-full">
+          <label class="font-bold" :for="answerTrue">Wpisz treść mozliwej
             odpowiedzi </label>
-          <input class="w-[75%]" type="text" :name="questionTOrF_answerT" :id="answerTrue"
+          <input class="" type="text" :name="questionTOrF_answerT" :id="answerTrue"
             placeholder="   wpisz treść mozliwej odpowiedzi" />
         </div>
-        <div class="flex flex-row flex-1 items-stretch w-full pl-4">
-          <label class="self-center w-[23%] mr-[2%] font-bold" :for="answerFalse">Wpisz treść mozliwej
+        <div class="w-[5%]"></div>
+        <div class="flex flex-col flex-1 items-stretch w-full pl-4">
+          <label class="font-bold" :for="answerFalse">Wpisz treść mozliwej
             odpowiedzi</label>
-          <input class="w-[75%]" type="text" :name="questionTOrF_answerF" :id="answerFalse"
+          <input class="" type="text" :name="questionTOrF_answerF" :id="answerFalse"
             placeholder="   wpisz treść mozliwej odpowiedzi B" />
         </div>
       </div>
