@@ -1,8 +1,7 @@
     <template>
     <div class="flex flex-row flex-1 h-full">
 
-        <movingOnTheListBtns :index="index" :listLength="listLength"
-            @moveUp="$emit('moveUp', index)"
+        <movingOnTheListBtns :index="index" :listLength="listLength" @moveUp="$emit('moveUp', index)"
             @moveDown="$emit('moveDown', index)">
         </movingOnTheListBtns>
 
@@ -15,8 +14,7 @@
             </div>
         </div>
 
-        <otherFunctionalBtns :id="id" :index="index"
-            @deleteElement="$emit('deleteElement', id)"
+        <otherFunctionalBtns :id="id" :index="index" @deleteElement="$emit('deleteElement', id)"
             @swapElements="$emit('swapElements', index)">
         </otherFunctionalBtns>
 
@@ -47,6 +45,3 @@ export default {
     },
 };
 </script>
-  
-  <style>
-  </style>

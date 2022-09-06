@@ -6,7 +6,8 @@
     <form action="/api/post" method="POST">
         <slot></slot>
         <div class="flex flex-col justify-center mx-auto mt-8 mb-8 space-y-4">
-            <div class="flex flex-col flex-1 items-stretch w-full p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black">
+            <div
+                class="flex flex-col flex-1 items-stretch w-full p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black">
                 <div class="flex flex-row flex-1 items-stretch w-full">
                     <label class="self-center w-[18%] mr-[2%] font-bold" for="title">Wpisz Nazwę
                         ankiety</label>

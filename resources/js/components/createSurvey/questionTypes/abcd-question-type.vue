@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-row flex-1">
-    <movingOnTheListBtns :index="index" :listLength="listLength"
-      @moveUp="$emit('moveUp',index)" 
-      @moveDown="$emit('moveDown',index)">
+    <movingOnTheListBtns :index="index" :listLength="listLength" @moveUp="$emit('moveUp', index)"
+      @moveDown="$emit('moveDown', index)">
     </movingOnTheListBtns>
 
     <div
@@ -38,50 +37,40 @@
       </div>
     </div>
 
-    <otherFunctionalBtns :id="id" :index="index"
-      @deleteElement="$emit('deleteElement', id)"
-      @swapElements="$emit('swapElements', index)" >
+    <otherFunctionalBtns :id="id" :index="index" @deleteElement="$emit('deleteElement', id)"
+      @swapElements="$emit('swapElements', index)">
     </otherFunctionalBtns>
 
   </div>
 </template>
 
-<script>
+<script setup>
 import movingOnTheListBtns from "../moving-on-the-list-btns.vue";
 import otherFunctionalBtns from "../other-functional-btns.vue";
-export default {
-  components: {
-    movingOnTheListBtns,
-    otherFunctionalBtns,
-  },
 
-  props: {
-    id: { required: true, type: String },
-    type: { required: true, type: String },
-    index: { required: true, type: Number },
-    listLength: { required: true, type: Number },
-  },
+const props = defineProps({
+  id: { required: true, type: String },
+  type: { required: true, type: String },
+  index: { required: true, type: Number },
+  listLength: { required: true, type: Number },
+})
 
-  data() {
-    return {
-      questionABCD: 'questions[' + this.index + '][abcd][question][name]',
-      questionABCDId: 'questions-' + this.index + '-question-abcd',
-      questionABCD_answerA: 'questions[' + this.index + '][abcd][answers][a]',
-      answerA: 'questions-' + this.index + '-answer-a',
-      questionABCD_answerB: 'questions[' + this.index + '][abcd][answers][b]',
-      answerB: 'questions-' + this.index + '-answer-b',
-      questionABCD_answerC: 'questions[' + this.index + '][abcd][answers][c]',
-      answerC: 'questions-' + this.index + '-answer-c',
-      questionABCD_answerD: 'questions[' + this.index + '][abcd][answers][d]',
-      answerD: 'questions-' + this.index + '-answer-d',
-    };
-  },
+const emit = defineEmits([
+  'moveUp',
+  'moveDown',
+  'deleteElement',
+  'swapElements'
+])
 
-  methods: {
-    //methods
-  },
-};
+const questionABCD = 'questions[' + props.index + '][abcd][question][name]';
+const questionABCDId = 'questions-' + props.index + '-question-abcd';
+const questionABCD_answerA = 'questions[' + props.index + '][abcd][answers][a]';
+const answerA = 'questions-' + props.index + '-answer-a';
+const questionABCD_answerB = 'questions[' + props.index + '][abcd][answers][b]';
+const answerB = 'questions-' + props.index + '-answer-b';
+const questionABCD_answerC = 'questions[' + props.index + '][abcd][answers][c]';
+const answerC = 'questions-' + props.index + '-answer-c';
+const questionABCD_answerD = 'questions[' + props.index + '][abcd][answers][d]';
+const answerD = 'questions-' + props.index + '-answer-d';
+
 </script>
-  
-  <style>
-  </style>
