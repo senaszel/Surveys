@@ -34,7 +34,7 @@ export default {
 
     data() {
         return {
-            questionOpen: 'questions[' + this.id + '][open][question][name]',
+            questionOpen: 'questions[' + this.index + '][open][question][name]',
         };
     },
     props: {
