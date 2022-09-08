@@ -1,5 +1,7 @@
 <template>
   <div class="flex flex-row flex-1">
+    <input type="hidden" :name="typeName" :value="type"/>
+
     <movingOnTheListBtns :index="index" :listLength="listLength" @moveUp="$emit('moveUp', index)"
       @moveDown="$emit('moveDown', index)">
     </movingOnTheListBtns>
@@ -62,15 +64,16 @@ const emit = defineEmits([
   'swapElements'
 ])
 
-const questionABCD = 'questions[' + props.index + '][abcd][question][name]';
+const typeName = 'questions[' + props.index + '][type]';
+const questionABCD = 'questions[' + props.index + '][question][name]';
 const questionABCDId = 'questions-' + props.index + '-question-abcd';
-const questionABCD_answerA = 'questions[' + props.index + '][abcd][answers][a]';
+const questionABCD_answerA = 'questions[' + props.index + '][answers][a]';
 const answerA = 'questions-' + props.index + '-answer-a';
-const questionABCD_answerB = 'questions[' + props.index + '][abcd][answers][b]';
+const questionABCD_answerB = 'questions[' + props.index + '][answers][b]';
 const answerB = 'questions-' + props.index + '-answer-b';
-const questionABCD_answerC = 'questions[' + props.index + '][abcd][answers][c]';
+const questionABCD_answerC = 'questions[' + props.index + '][answers][c]';
 const answerC = 'questions-' + props.index + '-answer-c';
-const questionABCD_answerD = 'questions[' + props.index + '][abcd][answers][d]';
+const questionABCD_answerD = 'questions[' + props.index + '][answers][d]';
 const answerD = 'questions-' + props.index + '-answer-d';
 
 </script>

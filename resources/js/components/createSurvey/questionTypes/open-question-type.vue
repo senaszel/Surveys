@@ -1,6 +1,7 @@
     <template>
     <div class="flex flex-row flex-1 h-full">
-
+        <input type="hidden" :name="typeName" :value="type"/>
+        
         <movingOnTheListBtns :index="index" :listLength="listLength" @moveUp="$emit('moveUp', index)"
             @moveDown="$emit('moveDown', index)">
         </movingOnTheListBtns>
@@ -34,7 +35,8 @@ export default {
 
     data() {
         return {
-            questionOpen: 'questions[' + this.index + '][open][question][name]',
+            typeName: 'questions[' + this.index + '][type]',
+            questionOpen: 'questions[' + this.index + '][question][name]',
         };
     },
     props: {

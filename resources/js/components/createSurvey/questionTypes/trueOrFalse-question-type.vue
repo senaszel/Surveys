@@ -1,5 +1,6 @@
     <template>
   <div class="flex flex-row flex-1">
+    <input type="hidden" :name="typeName" :value="type"/>
 
     <movingOnTheListBtns :index="index" :listLength="listLength" @moveUp="$emit('moveUp', index)"
       @moveDown="$emit('moveDown', index)">
@@ -51,11 +52,12 @@ export default {
 
   data() {
     return {
-      questionTOrF: 'questions[' + this.index + '][trueOrFalse][question][name]',
+      typeName: 'questions[' + this.index + '][type]',
+      questionTOrF: 'questions[' + this.index + '][question][name]',
       questionTOrFId: 'questions-' + this.index + '-question-trueOrFalse',
-      questionTOrF_answerT: 'questions[' + this.index + '][trueOrFalse][answers][true]',
+      questionTOrF_answerT: 'questions[' + this.index + '][answers][true]',
       answerTrue: 'questions-' + this.index + '-answer-true',
-      questionTOrF_answerF: 'questions[' + this.index + '][trueOrFalse][answers][false]',
+      questionTOrF_answerF: 'questions[' + this.index + '][answers][false]',
       answerFalse: 'questions-' + this.index + '-answer-false',
     };
   },
