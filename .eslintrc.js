@@ -1,27 +1,40 @@
 module.exports = {
+    env: {
+        "vue/setup-compiler-macros": true,
+    },
     rules: {
         "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         "prettier/prettier": "error",
         "arrow-body-style": "off",
         "prefer-arrow-callback": "off",
-        "comma-dangle": ["error", "only-multiline"],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                argsIgnorePattern: "^_",
+                varsIgnorePattern: "^_|^props$|^emit$",
+                caughtErrorsIgnorePattern: "^_",
+            },
+        ],
+        // "comma-dangle": ["error", "only-multiline"],
     },
 
     root: true,
 
     env: {
+        browser: true,
         node: true,
     },
 
     extends: [
-        "eslint:recommended",
         "plugin:vue/vue3-recommended",
-        "plugin:prettier/recommended",
-        "prettier",
+        "@vue/typescript/recommended",
+        "@vue/eslint-config-typescript",
+        "@vue/eslint-config-prettier",
     ],
 
-    plugins: ["prettier"],
+    plugins: ["prettier", "vue", "@typescript-eslint", "html"],
 
     parserOptions: {
         ecmaVersion: 2020,

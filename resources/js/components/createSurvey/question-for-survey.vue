@@ -1,46 +1,46 @@
 <template>
     <div v-if="type === 'abcd'">
         <abcdQuestionType
-            :type="type"
             :id="id"
+            :type="type"
             :index="index"
-            :listLength="listLength"
-            @deleteElement="$emit('deleteElement', id)"
-            @moveUp="$emit('moveUp', index)"
-            @moveDown="$emit('moveDown', index)"
-            @swapElements="$emit('swapElements', index)"
+            :list-length="listLength"
+            @delete-element="$emit('deleteElement', id)"
+            @move-up="$emit('moveUp', index)"
+            @move-down="$emit('moveDown', index)"
+            @swap-elements="$emit('swapElements', index)"
         >
         </abcdQuestionType>
     </div>
     <div v-if="type === 'trueOrFalse'">
         <trueOrFalseQuestionType
-            :type="type"
             :id="id"
+            :type="type"
             :index="index"
-            :listLength="listLength"
-            @deleteElement="$emit('deleteElement', id)"
-            @moveUp="$emit('moveUp', index)"
-            @moveDown="$emit('moveDown', index)"
-            @swapElements="$emit('swapElements', index)"
+            :list-length="listLength"
+            @delete-element="$emit('deleteElement', id)"
+            @move-up="$emit('moveUp', index)"
+            @move-down="$emit('moveDown', index)"
+            @swap-elements="$emit('swapElements', index)"
         >
         </trueOrFalseQuestionType>
     </div>
     <div v-if="type === 'open'">
         <openQuestionType
-            :type="type"
             :id="id"
+            :type="type"
             :index="index"
-            :listLength="listLength"
-            @deleteElement="$emit('deleteElement', id)"
-            @moveUp="$emit('moveUp', index)"
-            @moveDown="$emit('moveDown', index)"
-            @swapElements="$emit('swapElements', index)"
+            :list-length="listLength"
+            @delete-element="$emit('deleteElement', id)"
+            @move-up="$emit('moveUp', index)"
+            @move-down="$emit('moveDown', index)"
+            @swap-elements="$emit('swapElements', index)"
         >
         </openQuestionType>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { provide } from "vue";
 import abcdQuestionType from "./questionTypes/abcd-question-type.vue";
 import trueOrFalseQuestionType from "./questionTypes/trueOrFalse-question-type.vue";
@@ -66,6 +66,4 @@ const controller = {
 };
 
 provide("questionController", controller);
-
-//provide(quesetionControllerKey, controller)
 </script>

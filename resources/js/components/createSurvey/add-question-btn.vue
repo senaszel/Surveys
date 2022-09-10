@@ -8,34 +8,34 @@
                 <div class="flex flex-row items-stretch flex-1">
                     <button
                         id="BtnAddOpenTypeOfQuestion"
-                        @click="AddCertainTypeOfQuestion('open')"
                         class="p-2 mx-8 my-4 text-white bg-green-500 text-l outline outline-green-500 hover:text-green-500 hover:bg-white"
                         type="button"
+                        @click="AddCertainTypeOfQuestion('open')"
                     >
                         otwarte
                     </button>
                     <button
                         id="BtnAddABCDTypeOfQuestion"
-                        @click="AddCertainTypeOfQuestion('abcd')"
                         class="p-2 mx-8 my-4 text-white bg-green-500 text-l outline outline-green-500 hover:text-green-500 hover:bg-white"
                         type="button"
+                        @click="AddCertainTypeOfQuestion('abcd')"
                     >
                         ABCD
                     </button>
                     <button
                         id="BtnAddTrueOrFalseTypeOfQuestion"
-                        @click="AddCertainTypeOfQuestion('trueOrFalse')"
                         class="p-2 mx-8 my-4 text-white bg-green-500 text-l outline outline-green-500 hover:text-green-500 hover:bg-white"
                         type="button"
+                        @click="AddCertainTypeOfQuestion('trueOrFalse')"
                     >
                         tak/nie
                     </button>
                 </div>
 
                 <button
+                    id="close-button"
                     class="p-2 mt-4 text-white bg-red-500 outline outline-red-500 hover:text-red-500 hover:bg-white hover:text-2xl"
                     type="button"
-                    id="close-button"
                     @click="closeModal"
                 >
                     zamknij
@@ -47,9 +47,9 @@
             class="flex flex-row flex-1 w-full mx-auto p-8 shadow-lg rounded-xl bg-red-50"
         >
             <button
+                id="open-button"
                 class="flex-1 px-4 py-4 text-xl text-white rounded bg-green-400 hover:bg-slate-300 hover:text-green-400 hover:text-2xl outline-none hover:font-bold hover:outline hover:outline-red-50 hover:outline-4"
                 type="button"
-                id="open-button"
                 @click="showModal"
             >
                 Dodaj pytanie
@@ -63,13 +63,14 @@ export default {
     components: {
         //components
     },
+    props: {
+        //props
+    },
+    emits: { AddCertainTypeOfQuestion: null },
     data() {
         return {
             //data
         };
-    },
-    props: {
-        //props
     },
     methods: {
         showModal() {

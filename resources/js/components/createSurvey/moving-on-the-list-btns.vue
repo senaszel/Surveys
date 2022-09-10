@@ -8,15 +8,15 @@
         >
             <button
                 v-if="index !== 0"
-                @click.prevent="controller.moveUp(index)"
                 class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full"
+                @click.prevent="controller.moveUp(index)"
             >
                 przesuń w górę
             </button>
             <button
                 v-if="index !== listLength - 1"
-                @click.prevent="controller.moveDown(index)"
                 class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full"
+                @click.prevent="controller.moveDown(index)"
             >
                 przesuń w dół
             </button>
