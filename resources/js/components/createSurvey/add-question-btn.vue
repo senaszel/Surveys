@@ -66,7 +66,7 @@ export default {
     props: {
         //props
     },
-    emits: ["AddCertainTypeOfQuestion"],
+    emits: { AddCertainTypeOfQuestion: null },
     data() {
         return {
             //data

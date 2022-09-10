@@ -1,4 +1,7 @@
 module.exports = {
+    env: {
+        "vue/setup-compiler-macros": true,
+    },
     rules: {
         "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
@@ -6,7 +9,6 @@ module.exports = {
         "arrow-body-style": "off",
         "prefer-arrow-callback": "off",
         "no-unused-vars": "off",
-        "vue/v-on-event-hyphenation": "off",
         "@typescript-eslint/no-unused-vars": [
             "warn",
             {

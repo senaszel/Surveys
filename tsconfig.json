@@ -12,14 +12,14 @@
         "isolatedModules": true,
         "esModuleInterop": true,
         "lib": ["ESNext", "DOM"],
-        "skipLibCheck": true,
-  },
-  "include": [
-    "resources/**/*.ts",
-    "resources/**/*.d.ts",
-    "resources/**/*.tsx",
-    "resources/**/*.vue",
-    "auto-imports.d.ts",
-    "components.d.ts"
-  ],
+        "skipLibCheck": true
+    },
+    "include": [
+        "resources/**/*.ts",
+        "resources/**/*.d.ts",
+        "resources/**/*.tsx",
+        "resources/**/*.vue",
+        "auto-imports.d.ts",
+        "components.d.ts"
+    ]
 }

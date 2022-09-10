@@ -37,10 +37,10 @@
                             :type="el.type"
                             :index="index"
                             :list-length="list.length"
-                            @deleteElement="deleteElement"
-                            @moveUp="moveUp"
-                            @moveDown="moveDown"
-                            @swapElements="swapElements"
+                            @delete-element="deleteElement"
+                            @move-up="moveUp"
+                            @move-down="moveDown"
+                            @swap-elements="swapElements"
                         ></questionForSurvey>
                     </li>
                 </ul>
@@ -51,7 +51,7 @@
             class="flex flex-col justify-center w-[80%] mx-auto mt-8 mb-8 space-y-4"
         >
             <addQuestionBtn
-                @AddCertainTypeOfQuestion="AddCertainTypeOfQuestion"
+                @add-certain-type-of-question="AddCertainTypeOfQuestion"
             ></addQuestionBtn>
         </div>
 

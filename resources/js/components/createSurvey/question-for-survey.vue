@@ -1,42 +1,42 @@
 <template>
     <div v-if="type === 'abcd'">
-        <AbcdQuestionType
+        <abcdQuestionType
             :id="id"
             :type="type"
             :index="index"
             :list-length="listLength"
-            @deleteElement="$emit('deleteElement', id)"
-            @moveUp="$emit('moveUp', index)"
-            @moveDown="$emit('moveDown', index)"
-            @swapElements="$emit('swapElements', index)"
+            @delete-element="$emit('deleteElement', id)"
+            @move-up="$emit('moveUp', index)"
+            @move-down="$emit('moveDown', index)"
+            @swap-elements="$emit('swapElements', index)"
         >
-        </AbcdQuestionType>
+        </abcdQuestionType>
     </div>
     <div v-if="type === 'trueOrFalse'">
-        <TrueOrFalseQuestionType
+        <trueOrFalseQuestionType
             :id="id"
             :type="type"
             :index="index"
             :list-length="listLength"
-            @deleteElement="$emit('deleteElement', id)"
-            @moveUp="$emit('moveUp', index)"
-            @moveDown="$emit('moveDown', index)"
-            @swapElements="$emit('swapElements', index)"
+            @delete-element="$emit('deleteElement', id)"
+            @move-up="$emit('moveUp', index)"
+            @move-down="$emit('moveDown', index)"
+            @swap-elements="$emit('swapElements', index)"
         >
-        </TrueOrFalseQuestionType>
+        </trueOrFalseQuestionType>
     </div>
     <div v-if="type === 'open'">
-        <OpenQuestionType
+        <openQuestionType
             :id="id"
             :type="type"
             :index="index"
             :list-length="listLength"
-            @deleteElement="$emit('deleteElement', id)"
-            @moveUp="$emit('moveUp', index)"
-            @moveDown="$emit('moveDown', index)"
-            @swapElements="$emit('swapElements', index)"
+            @delete-element="$emit('deleteElement', id)"
+            @move-up="$emit('moveUp', index)"
+            @move-down="$emit('moveDown', index)"
+            @swap-elements="$emit('swapElements', index)"
         >
-        </OpenQuestionType>
+        </openQuestionType>
     </div>
 </template>
 
@@ -46,27 +46,22 @@ import AbcdQuestionType from "./questionTypes/abcd-question-type.vue";
 import TrueOrFalseQuestionType from "./questionTypes/trueOrFalse-question-type.vue";
 import OpenQuestionType from "./questionTypes/open-question-type.vue";
 import { quesetionControllerKey, QuestionController } from "./question";
-
 const props = defineProps({
     id: { required: true, type: String },
     type: { required: true, type: String },
     index: { required: true, type: Number },
     listLength: { required: true, type: Number },
 });
-
 const emit = defineEmits([
     "moveUp",
     "moveDown",
     "deleteElement",
     "swapElements",
 ]);
-
 const controller: QuestionController = {
     moveUp: (index) => emit("moveUp", index),
     moveDown: (index) => emit("moveDown", index),
 };
-
 provide(quesetionControllerKey, controller);
-
 //provide(quesetionControllerKey, controller)
 </script>

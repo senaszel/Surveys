@@ -25,6 +25,6 @@ export default {
         id: { required: true, type: String },
         index: { required: true, type: Number },
     },
-    emits: ["deleteElement", "swapElements"],
+    emits: { deleteElement: null, swapElements: null },
 };
 </script>
