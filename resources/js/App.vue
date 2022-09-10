@@ -1,12 +1,12 @@
 <template>
-  <createSurvey></createSurvey>
+    <createSurvey></createSurvey>
 </template>
 
 <script>
-import createSurvey from './components/createSurvey/create-survey.vue';
+import createSurvey from "./components/createSurvey/create-survey.vue";
 export default {
-  components: {
-    createSurvey,
-  }
-}
+    components: {
+        createSurvey,
+    },
+};
 </script>

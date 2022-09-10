@@ -1,5 +1,5 @@
-import {createApp} from 'vue'
+import { createApp } from "vue";
 
-import CreateSurvey from './components/createSurvey/create-survey.vue';
+import CreateSurvey from "./components/createSurvey/create-survey.vue";
 
-createApp(CreateSurvey).mount("#vue-create-survey")
+createApp(CreateSurvey).mount("#vue-create-survey");

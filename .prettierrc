@@ -1,0 +1,9 @@
+{
+    "printWidth": 80,
+    "quoteProps": "as-needed",
+    "trailingComma": "es5",
+    "endOfLine": "auto",
+    "semi": true,
+    "vueIndentScriptAndStyle": false,
+    "arrowParens": "always"
+}
