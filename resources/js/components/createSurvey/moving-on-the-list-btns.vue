@@ -8,15 +8,15 @@
         >
             <button
                 v-if="index !== 0"
-                @click.prevent="controller.moveUp(index)"
                 class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full"
+                @click.prevent="controller.moveUp(index)"
             >
                 przesuń w górę
             </button>
             <button
                 v-if="index !== listLength - 1"
-                @click.prevent="controller.moveDown(index)"
                 class="justify-self-end bg-blue-400 hover:bg-blue-600 hover:text-white p-4 rounded-full"
+                @click.prevent="controller.moveDown(index)"
             >
                 przesuń w dół
             </button>
@@ -24,15 +24,16 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { inject } from "vue";
+import { quesetionControllerKey } from "./question";
 
 const props = defineProps({
     index: { required: true, type: Number },
     listLength: { required: true, type: Number },
 });
 
-const controller = inject("questionController");
+const controller = inject(quesetionControllerKey);
 if (controller == null) {
     throw new Error("not in question");
 }

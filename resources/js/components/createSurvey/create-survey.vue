@@ -18,10 +18,10 @@
                         >Wpisz Nazwę ankiety</label
                     >
                     <input
+                        id="title"
                         class="w-[80%] h-[125%]"
                         type="text"
                         name="title"
-                        id="title"
                         placeholder="   podaj nazwę ankiety"
                     />
                 </div>
@@ -31,12 +31,12 @@
                 class="flex flex-col flex-1 items-stretch w-full justify-center mx-auto mt-8 mb-8 space-y-4"
             >
                 <ul class="">
-                    <li class="py-8" v-for="(el, index) in list" :key="el.id">
+                    <li v-for="(el, index) in list" :key="el.id" class="py-8">
                         <questionForSurvey
                             :id="el.id"
                             :type="el.type"
                             :index="index"
-                            :listLength="list.length"
+                            :list-length="list.length"
                             @deleteElement="deleteElement"
                             @moveUp="moveUp"
                             @moveDown="moveDown"
@@ -100,7 +100,7 @@ function moveUp(index) {
 }
 
 function moveDown(index) {
-    if (index != list.length - 1) {
+    if (index != list.value.length - 1) {
         const temp = list.value[index + 1];
         list.value[index + 1] = list.value[index];
         list.value[index] = temp;

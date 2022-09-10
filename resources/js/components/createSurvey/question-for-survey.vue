@@ -1,50 +1,51 @@
 <template>
     <div v-if="type === 'abcd'">
-        <abcdQuestionType
-            :type="type"
+        <AbcdQuestionType
             :id="id"
+            :type="type"
             :index="index"
-            :listLength="listLength"
+            :list-length="listLength"
             @deleteElement="$emit('deleteElement', id)"
             @moveUp="$emit('moveUp', index)"
             @moveDown="$emit('moveDown', index)"
             @swapElements="$emit('swapElements', index)"
         >
-        </abcdQuestionType>
+        </AbcdQuestionType>
     </div>
     <div v-if="type === 'trueOrFalse'">
-        <trueOrFalseQuestionType
-            :type="type"
+        <TrueOrFalseQuestionType
             :id="id"
+            :type="type"
             :index="index"
-            :listLength="listLength"
+            :list-length="listLength"
             @deleteElement="$emit('deleteElement', id)"
             @moveUp="$emit('moveUp', index)"
             @moveDown="$emit('moveDown', index)"
             @swapElements="$emit('swapElements', index)"
         >
-        </trueOrFalseQuestionType>
+        </TrueOrFalseQuestionType>
     </div>
     <div v-if="type === 'open'">
-        <openQuestionType
-            :type="type"
+        <OpenQuestionType
             :id="id"
+            :type="type"
             :index="index"
-            :listLength="listLength"
+            :list-length="listLength"
             @deleteElement="$emit('deleteElement', id)"
             @moveUp="$emit('moveUp', index)"
             @moveDown="$emit('moveDown', index)"
             @swapElements="$emit('swapElements', index)"
         >
-        </openQuestionType>
+        </OpenQuestionType>
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { provide } from "vue";
-import abcdQuestionType from "./questionTypes/abcd-question-type.vue";
-import trueOrFalseQuestionType from "./questionTypes/trueOrFalse-question-type.vue";
-import openQuestionType from "./questionTypes/open-question-type.vue";
+import AbcdQuestionType from "./questionTypes/abcd-question-type.vue";
+import TrueOrFalseQuestionType from "./questionTypes/trueOrFalse-question-type.vue";
+import OpenQuestionType from "./questionTypes/open-question-type.vue";
+import { quesetionControllerKey, QuestionController } from "./question";
 
 const props = defineProps({
     id: { required: true, type: String },
@@ -60,12 +61,12 @@ const emit = defineEmits([
     "swapElements",
 ]);
 
-const controller = {
+const controller: QuestionController = {
     moveUp: (index) => emit("moveUp", index),
     moveDown: (index) => emit("moveDown", index),
 };
 
-provide("questionController", controller);
+provide(quesetionControllerKey, controller);
 
 //provide(quesetionControllerKey, controller)
 </script>

@@ -1,7 +1,8 @@
-import {InjectionKey} from 'vue'
-type questionController = {
-    moveUp: () => void;
-    moveDown: () => void;
-}
+import { InjectionKey } from "vue";
+export type QuestionController = {
+    moveUp: (index: number) => void;
+    moveDown: (index: number) => void;
+};
 
-export cosnt quesetionControllerKey: InjectionKey<questionController> = Symbol()
+export const quesetionControllerKey: InjectionKey<QuestionController> =
+    Symbol();
