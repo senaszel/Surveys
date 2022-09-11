@@ -26,17 +26,12 @@
 
 <script setup lang="ts">
 import { inject } from "vue";
-import { quesetionControllerKey } from "./question";
+import { QuestionController } from "./question";
 
 const props = defineProps({
     index: { required: true, type: Number },
     listLength: { required: true, type: Number },
 });
-
-const controller = inject(quesetionControllerKey);
-if (controller == null) {
-    throw new Error("not in question");
-}
 
 const emit = defineEmits([
     "moveUp",
@@ -44,4 +39,9 @@ const emit = defineEmits([
     "deleteElement",
     "swapElements",
 ]);
+
+const controller: QuestionController = inject("questionController")!;
+if (controller == null) {
+    throw new Error("not in question");
+}
 </script>

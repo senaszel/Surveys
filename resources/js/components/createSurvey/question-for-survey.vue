@@ -42,10 +42,10 @@
 
 <script setup lang="ts">
 import { provide } from "vue";
-import AbcdQuestionType from "./questionTypes/abcd-question-type.vue";
-import TrueOrFalseQuestionType from "./questionTypes/trueOrFalse-question-type.vue";
-import OpenQuestionType from "./questionTypes/open-question-type.vue";
-import { quesetionControllerKey, QuestionController } from "./question";
+import abcdQuestionType from "./questionTypes/abcd-question-type.vue";
+import trueOrFalseQuestionType from "./questionTypes/trueOrFalse-question-type.vue";
+import openQuestionType from "./questionTypes/open-question-type.vue";
+import { QuestionController } from "./question";
 const props = defineProps({
     id: { required: true, type: String },
     type: { required: true, type: String },
@@ -58,10 +58,9 @@ const emit = defineEmits([
     "deleteElement",
     "swapElements",
 ]);
-const controller: QuestionController = {
-    moveUp: (index) => emit("moveUp", index),
-    moveDown: (index) => emit("moveDown", index),
+const questionController: QuestionController = {
+    moveUp: (index: number): void => emit("moveUp", index),
+    moveDown: (index: number): void => emit("moveDown", index),
 };
-provide(quesetionControllerKey, controller);
-//provide(quesetionControllerKey, controller)
+provide("questionController", questionController);
 </script>
