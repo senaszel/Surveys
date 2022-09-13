@@ -40,7 +40,7 @@ const emit = defineEmits([
     "swapElements",
 ]);
 
-const controller: QuestionController = inject("questionController")!;
+const controller = inject<QuestionController>("questionController");
 if (controller == null) {
     throw new Error("not in question");
 }
