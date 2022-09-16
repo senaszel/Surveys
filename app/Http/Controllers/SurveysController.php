@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\CreateSurveysInterface;
 use Illuminate\Http\Request;
 
 class SurveysController extends Controller
 {
+    private $CreateSurveysService;
+
+    public function __construct(CreateSurveysInterface $CreateSurveysService)
+    {
+        $this->CreateSurveysService = $CreateSurveysService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +52,7 @@ class SurveysController extends Controller
      */
     public function create()
     {
-        //
+        return view('create-survey');
     }
 
     /**
@@ -55,7 +63,7 @@ class SurveysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->CreateSurveysService->store($request->collect());
     }
 
     /**

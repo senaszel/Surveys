@@ -5,8 +5,8 @@
         <h1 class="my-4 text-4xl font-bold text-center">Kreator ankiet</h1>
     </div>
 
-    <form action="/api/post" method="POST">
-        <slot></slot>
+    <form action="/surveys/store" method="POST">
+        <input type="hidden" name="_token" :value="token" />
         <div class="flex flex-col justify-center mx-auto mt-8 mb-8 space-y-4">
             <div
                 class="flex flex-col flex-1 items-stretch w-full p-8 shadow-lg rounded-xl bg-red-50 hover:bg-slate-300 hover:text-black"
@@ -69,6 +69,10 @@ import saveSurveyBtn from "./save-survey-btn.vue";
 import questionForSurvey from "./question-for-survey.vue";
 import { uniqueId } from "lodash";
 import { ref } from "vue";
+
+const token = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
 
 const list = ref([]);
 const swapElementFirst = ref({ nb: null });

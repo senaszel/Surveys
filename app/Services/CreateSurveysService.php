@@ -1,27 +1,39 @@
 <?php
 
-use App\Http\Controllers\SurveysController;
-use App\Services\CreateSurveysService;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Route;
+namespace App\Services;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+use App\Interfaces\CreateSurveysInterface;
+use App\Models\Survey;
+use App\Models\Question;
+use App\Models\Question_answer;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+class CreateSurveysService implements CreateSurveysInterface {
 
-Route::post('/post', function (Request $request) {
+    public function createSurvey(object $validated): Survey {
+        return Survey::create([
+            'user_id' => $validated->user_id,
+            'survey_type_id' => $validated->survey_type_id,
+            'title' => $validated->title,
+        ]);
+    }
+    
+    public function createQuestion(object $validated): Question {
+        return Question::create([
+            'survey_id' => $validated->survey_id,
+            'question_type_id' => $validated->question_type_id,
+            'image_url' => $validated->image_url,
+        ]);
+    }
+
+    public function createAnswer(object $validated): Question_answer {
+        return Question_answer::create([
+            'question_id' => $validated->question_id,
+            'content' => $validated->content,
+            'image_url' => $validated->image_url,
+        ]);
+    }
+
+    public function store($request) {
         $survey = json_decode(json_encode($request->all()));
         $rez="<h4>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h4>";
         if(isset($survey->title)){
@@ -55,6 +67,7 @@ Route::post('/post', function (Request $request) {
                 }
             }
         };
-        // return response()->json($request, 200);
         return $rez ?? 'empty';
-});
+    }
+}
+

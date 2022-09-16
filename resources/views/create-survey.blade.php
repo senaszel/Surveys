@@ -1,5 +1,6 @@
 <x-layout>
 
-    <div id="vue-create-survey">@csrf</div>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <div id="vue-create-survey"></div>
 
 </x-layout>
