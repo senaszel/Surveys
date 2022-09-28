@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OpinionFormingUsersController;
 use App\Http\Controllers\SurveysController;
+use App\Http\Controllers\SurveyImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function () {
 Route::get('/create-survey', function () {
     return view('create-survey', ['page' => 'create']);
 });
+
+Route::get('/create-survey/upload', [SurveyImageController::class, 'upload'])->middleware(['auth'])->name('upload');
+Route::post('/create-survey/upload', [SurveyImageController::class, 'store'])->middleware(['auth'])->name('store');
 
 Route::get('/dashboard', function () {
     return view('dashboard', ['page' => 'dashboard']);
